@@ -25,6 +25,9 @@ class Tag(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("tag", kwargs={"slug": self.slug})
+
     class Meta:
         verbose_name = "Tag"
         verbose_name_plural = "Tags"
@@ -47,6 +50,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post", kwargs={"slug": self.slug})
+
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"
